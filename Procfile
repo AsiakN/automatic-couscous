@@ -1,1 +1,1 @@
-web:gunicorn scribble_project.wsgi --log-file -
+web: gunicorn scribble_project.wsgi --log-file -
