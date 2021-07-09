@@ -1,10 +1,13 @@
 <!-- templates/home.html -->
 
-{% extends 'base.html' %}
+<h1>Research Board</h1>
+<ul>
+ {% for page in all_posts_lists %}
+    <li> {{ page.text }}</li>
+    
+ {% endfor %}
+ 
+</ul>
 
-{% block content %}
-<h1> Home </h1>
-
-{% endblock content %}
 
 
