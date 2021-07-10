@@ -1,13 +1,14 @@
 <!-- templates/home.html -->
-
-<h1>Research Board</h1>
-<ul>
+{% extends 'base.html' %}
+{% block content %}
+ <ul>
  {% for page in all_posts_lists %}
-    <li> {{ page.text }}</li>
-    
+   <div class="post-entry">
+     <h2><a href ="{% url 'about' page.pk %}">{{ page.title }}</a></h2>
+     <p> {{ page.body }}</p>
+    </div>
  {% endfor %}
- 
 </ul>
-
+{% endblock content %}
 
 

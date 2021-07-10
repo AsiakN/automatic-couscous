@@ -1,8 +1,10 @@
 from django.db import models
 
 class Page(models.Model):
-  text = models.TextField()
+  title = models.CharField(max_length=250)
+  author = models.ForeignKey('auth.User', on_delete=models.CASCADE,)
+  body = models.TextField()
   
   def __str__(self):
-     return self.text[:50]
+     return self.title
 # Create your models here.

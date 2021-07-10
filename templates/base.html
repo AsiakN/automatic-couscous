@@ -1,9 +1,22 @@
 <!-- templates/base.html -->
-<header>
-   <a href = "{% url 'home' %}">Home</a> | <a href = "{% url 'about'%}">About</a>
- </header>
-{% block content %}
+{% load static %}
+<html>
+ <head>
+   <title>Scribble.io</title>
+   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400"
+    rel="stylesheet">
+   <link href="{% static 'css/base.css' %}" rel="stylesheet">
+ </head>
+ 
+<body>
+ <div>
+   <header>
+     <h1><a href = "{% url 'home' %}">Research North</a></h1>
+   </header>
+  {% block content %}
    
-{% endblock content %}
+  {% endblock content %}
+ </div>
 
-
+</body>
+</html>
