@@ -11,8 +11,23 @@
 <body>
  <div>
    <header>
+     <div class="nav-left">
      <h1><a href = "{% url 'home' %}">Research North</a></h1>
+     </div>
+     
+     <div class="nav-right">
+       <h5><a href= "{% url 'new' %}">+New Scribe</a></h5>
+     
+     </div>
    </header>
+   {% if user.is_authenticated %}
+      <p> Hi {{ user.username }}! </p>
+      <a href="{% url 'logout' %}">
+      <button type="submit">Log Out</button></a>
+   {% else %}
+     <p> You are not logged in. </p>
+     <a href="{% url 'login' %}">Log In</a>
+   {% endif %}
   {% block content %}
    
   {% endblock content %}

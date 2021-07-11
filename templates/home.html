@@ -4,7 +4,11 @@
  <ul>
  {% for page in all_posts_lists %}
    <div class="post-entry">
-     <h2><a href ="{% url 'about' page.pk %}">{{ page.title }}</a></h2>
+      <form action="" method="post">
+      <input type="checkbox" id='page.pk' value="done"/>
+      <label for="page.pk"> <h2><a href ="{% url 'about' page.pk %}">{{ page.title }}</a></h2> </label>
+     
+     </form>
      <p> {{ page.body }}</p>
     </div>
  {% endfor %}

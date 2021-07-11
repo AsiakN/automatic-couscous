@@ -4,9 +4,17 @@
 
 {% block content %}
 <div class="post-entry">
+  <form action="" method="post">
+    <input type="checkbox" id='page.pk' value="done"/>
+      <label for="page.pk">
   <h2>{{ page.title }}</h2>
+      </label>
+    </input>
+  </form>
   <p> {{ page.body }} </p>
 </div>
+
+<a href="{% url 'edit' page.pk %}"> Edit Scribe </a>
 
 {% endblock content %}
 
