@@ -1,17 +1,32 @@
 <!-- templates/home.html -->
 {% extends 'base.html' %}
 {% block content %}
- <ul>
- {% for page in all_posts_lists %}
-   <div class="post-entry">
-      <form action="" method="post">
-      <input type="checkbox" id='page.pk' value="done"/>
-      <label for="page.pk"> <h2><a href ="{% url 'about' page.pk %}">{{ page.title }}</a></h2> </label>
-     
-     </form>
-     <p> {{ page.body }}</p>
-    </div>
- {% endfor %}
+  {% if user.is_authenticated %}
+    <div class="jumbotron">
+    <h1 class="display-4">Scribble </h1>
+    <p class="lead">All your research in at a go!</p>
+    <p class="lead">
+      <a class="btn btn-primary btn-lg" href="{% url 'list' %}"
+       role="button"> View your research</a></p>
+      
+  </div>
+  {% else %}
+   <div class="jumbotron">
+    <h1 class="display-4">Scribble </h1>
+    <p class="lead">All your research at a go!</p>
+    <p class="lead">
+      <a class="btn btn-primary btn-lg" href="{% url 'login' %}"
+       role="button">LOGIN</a></p>
+   {% endif %}
+ {% if user.is_authenticated %} 
+   <a class="btn btn-block btn-social btn-twitter" href="{% url 'new' %}">
+    <span class="">
+      <button class="btn btn-info" type="submit">+ New Scribe</button>
+    </span>
+  </a> 
+  {% else %}
+  
+ {% endif %}
 </ul>
 {% endblock content %}
 

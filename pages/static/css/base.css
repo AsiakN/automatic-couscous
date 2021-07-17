@@ -3,6 +3,9 @@ body {
 font-family: 'Source Sans Pro', sans-serif;
 font-size: 18px;
 }
+.help_text 
+{display: none}
+
 header {
 border-bottom: 5px solid #999;
 margin-bottom: 2rem;

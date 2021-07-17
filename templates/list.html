@@ -1,0 +1,15 @@
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+{% block content %}
+ <ul>
+ {% for page in all_posts_lists %}
+
+   <div class="post-entry">
+    
+    <h2><a href ="{% url 'about' page.pk %}">{{ page.title }}</a></h2>
+     <p> {{ page.body }}</p>
+    </div>
+ {% endfor %}
+</ul>
+{% endblock content %}
+
