@@ -2,7 +2,7 @@ from django import forms
 
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 
-from .models import CustomUser
+from .models import CustomUser, CreateScribe
 
 class CustomUserCreationForm(UserCreationForm):
 
@@ -11,7 +11,7 @@ class CustomUserCreationForm(UserCreationForm):
    
       model = CustomUser
       
-      fields = ('username', 'email','Interest',)
+      fields = ('username', 'email','Role',)
       
       help_texts = {
           'username': None,
@@ -25,7 +25,7 @@ class CustomUserChangeForm(UserChangeForm):
    
       model = CustomUser
       
-      fields = ('username', 'email','Interest',)
+      fields = ('username', 'email','Role',)
       
       help_texts ={
           'username': None, 

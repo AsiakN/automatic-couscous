@@ -10,20 +10,35 @@ Research_Areas = (
     ('Healthcare', 'HEALTHCARE'),
  )
  
+Job = (
+ ('Executive', 'CEO'),
+ ('Business Development', 'Business Development Specialist'),
+ ('Research and Development', 'R&D'), 
+ ('Technology', 'Software Engineer'),
+)
+ 
 class CustomUser(AbstractUser):
-   Interest = models.CharField(max_length=50, choices=Research_Areas, default='Logistics')
-   title = models.CharField(max_length=250)
-   body = models.TextField()
-   author = models.ForeignKey('pages.CustomUser', on_delete=models.CASCADE, null=True,)
-   
-   def __str__(self):
-     return self.title
+   UniqueName = models.CharField(max_length=50, default="")
+   Role = models.CharField(max_length=50, choices=Job, default="")
      
+  # def __str__(self):
+   #  return self.UniqueName
    
    def get_absolute_url(self):
      return reverse('about', args=[str(self.id)])
    
-  
+class CreateScribe(models.Model):
+   Interest = models.CharField(max_length=50, choices=Research_Areas, default="")
+   title = models.CharField(max_length=250)
+   body = models.TextField()
+   author = models.ForeignKey(CustomUser, on_delete=models.CASCADE, null=True,)
+   
+      
+   def __str__(self):
+     return self.title
+ 
+   def get_absolute_url(self):
+     return reverse('about', args=[str(self.id)])
 
 #class Page(models.Model):
 #  title = models.CharField(max_length=250)
