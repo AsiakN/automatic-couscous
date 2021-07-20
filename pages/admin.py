@@ -12,8 +12,9 @@ class CustomUserAdmin(UserAdmin):
    model = CustomUser
    list_display = ['email', 'username', 'Role','is_staff',]
 
+@admin.register(CreateScribe)
 class CreateScribeAdmin(admin.ModelAdmin):
-   list_display = ['author', 'title', 'Interest',]
+   list_display = ['title', 'Interest',]
 
 admin.site.register(CustomUser, CustomUserAdmin)
 #admin.site.register(Page)

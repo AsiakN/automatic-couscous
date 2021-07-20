@@ -17,6 +17,11 @@ class CustomUserCreationForm(UserCreationForm):
           'username': None,
           'email': None, 
       }
+      
+   def clean_passowrd(self):
+      cd = self.cleaned_data
+      
+      return cd['password']
 
 class CustomUserChangeForm(UserChangeForm):
 

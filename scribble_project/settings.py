@@ -40,11 +40,14 @@ INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     'pages.apps.PagesConfig',
-    'accounts.apps.AccountsConfig',
+    #'accounts.apps.AccountsConfig',
+    'scrapper.apps.ScrapperConfig',
     #'users.apps.UsersConfig',
     
     # 3rd party apps
     'crispy_forms',
+    'taggit',
+    #'googlesearch',
 ]
 
 
@@ -72,6 +75,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                
             ],
         },
     },
@@ -136,3 +140,11 @@ LOGOUT_REDIRECT_URL = 'home'
 AUTH_USER_MODEL = 'pages.CustomUser'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# celery
+CELERY_BROKER_URL = 'amqp://localhost:5672'
+CELERY_RESULT_BACKEND = 'amqp://localhost:5672'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'UTC'

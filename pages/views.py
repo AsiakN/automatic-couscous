@@ -7,11 +7,16 @@ from .models import CustomUser, CreateScribe
 from django.urls import reverse_lazy
 from .forms import CustomUserCreationForm
 
+from scrapper.models import News
 
 class HomePageView(ListView):
-   model = CreateScribe
+   #model = CreateScribe
+   model = News
    template_name = 'home.html'
+   context_object_name = 'articles'
    
+   def get_queryset(self):
+        return News.objects.all()
 
 class ListPageView(ListView):
     model = CreateScribe
