@@ -67,7 +67,7 @@ class PageCreateView(CreateView):
    def form_valid(self, form):
        obj = form.save(commit=False)
        obj.author = self.request.user
-       obj.save
+       obj.save()
        return HttpResponseRedirect(self.get_success_url())
   
    def form_invalid(self, form):
