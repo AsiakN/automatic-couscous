@@ -25,14 +25,14 @@ class CustomUser(AbstractUser):
   # def __str__(self):
    #  return self.UniqueName
    
-   def get_absolute_url(self):
-     return reverse('about', args=[str(self.id)])
+   #def get_absolute_url(self):
+     #return reverse('about', args=[str(self.id)])
    
 class CreateScribe(models.Model):
    Interest = models.CharField(max_length=50, choices=Research_Areas, default="")
    title = models.CharField(max_length=250)
    body = models.TextField()
-   author = models.ForeignKey(CustomUser, on_delete=models.CASCADE, null=True,)
+   author = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
    tags = TaggableManager()
    
       

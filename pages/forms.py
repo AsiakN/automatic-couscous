@@ -1,5 +1,5 @@
-from django import forms
-
+from django import forms 
+from django.forms import ModelForm
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 
 from .models import CustomUser, CreateScribe
@@ -37,4 +37,10 @@ class CustomUserChangeForm(UserChangeForm):
           'email': None, 
       }
       
+
+class ScribeCreationForm(ModelForm):
+
+   class Meta: 
+      model = CreateScribe
+      fields =  ['title', 'body']
       

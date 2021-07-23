@@ -21,6 +21,6 @@ urlpatterns = [
     path('', include('pages.urls')),
     path('accounts/', include('django.contrib.auth.urls')), 
     #patterns(r'^search/', include('googlesearch.urls')),
-    #path('accounts/', include('accounts.urls')),
+    #path('scrapper/', include('scrapper.urls')),
    # path('users/', include('users.urls')),
 ]
