@@ -8,7 +8,7 @@
 <form action="{% url 'edit' pk=form.instance.pk %}" method="post">
   {% csrf_token %}
   {{ form.as_p }}
- <input type="submit" value="update">
+ <input class="btn btn-success ml-2" type="submit" value="update">
 
 </form>
 

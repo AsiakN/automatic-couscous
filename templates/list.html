@@ -2,15 +2,17 @@
 {% extends 'base.html' %}
 {% block content %}
  <ul>
- {% for page in all_posts_lists %}
-
+{% for page in all_posts_lists %}
+ <div class="card" style="width: 18rem;">
    <div class="post-entry">
+     <img class="card-img-top" src="..." alt="Card image cap">
     
     <h2>{{ page.title }}</a></h2>
     <p class="tags">Tags: {{ page.tags.all|join:", "}}</p>
      <p> {{ page.body }}</p>
+     <a class="btn btn-success ml-2" href ="{% url 'about' page.pk %}" role="button">View</a>  <a class="btn btn-success ml-2" href="{% url 'edit' page.pk %}">Edit </a>    <a class="btn btn-danger" href="" role="button">Delete </a>
     </div>
-    <a class="btn btn-success ml-2" href ="{% url 'about' page.pk %}" role="button">View</a> <a class="btn btn-success ml-2" href="{% url 'edit' page.pk %}">Edit </a>
+ </div>   
  {% endfor %}
  
 </ul>
