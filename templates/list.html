@@ -9,9 +9,10 @@
     <h2>{{ page.title }}</a></h2>
     <p class="tags">Tags: {{ page.tags.all|join:", "}}</p>
      <p> {{ page.body }}</p>
-     <a class="btn btn-success ml-2" href ="{% url 'about' page.pk %}">
     </div>
+    <a class="btn btn-success ml-2" href ="{% url 'about' page.pk %}" role="button">View</a> <a class="btn btn-success ml-2" href="{% url 'edit' page.pk %}">Edit </a>
  {% endfor %}
+ 
 </ul>
 {% endblock content %}
 

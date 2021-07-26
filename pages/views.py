@@ -29,6 +29,7 @@ class DetailPageView(DetailView):
    model = CreateScribe
    template_name = 'about.html'
    context_object_name = 'all_posts_lists'
+   #success_url = reverse_lazy('list')
    
 class PageCreateView(CreateView):
    model = CreateScribe
