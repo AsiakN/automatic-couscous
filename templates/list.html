@@ -6,9 +6,10 @@
 
    <div class="post-entry">
     
-    <h2><a href ="{% url 'about' page.pk %}">{{ page.title }}</a></h2>
+    <h2>{{ page.title }}</a></h2>
     <p class="tags">Tags: {{ page.tags.all|join:", "}}</p>
      <p> {{ page.body }}</p>
+     <a class="btn btn-success ml-2" href ="{% url 'about' page.pk %}">
     </div>
  {% endfor %}
 </ul>
