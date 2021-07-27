@@ -3,6 +3,18 @@ body {
 font-family: 'Source Sans Pro', sans-serif;
 font-size: 18px;
 }
+.container{
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.card {
+   margin-bottom: 10px;
+}
 .help_text 
 {display: none}
 

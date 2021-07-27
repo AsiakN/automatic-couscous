@@ -23,6 +23,7 @@ class ListPageView(ListView):
     template_name = 'list.html'
    # context_object_name = 
     context_object_name = 'all_posts_lists'
+    paginate_by = 3; 
     
 
 class DetailPageView(DetailView):

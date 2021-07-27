@@ -2,19 +2,44 @@
 {% extends 'base.html' %}
 {% block content %}
  <ul>
+ <div class="container">
+ <div class="card-deck mt-4">
 {% for page in all_posts_lists %}
- <div class="card" style="width: 18rem;">
-   <div class="post-entry">
+  <div class="post-entry">
+    <div class="card">
      <img class="card-img-top" src="..." alt="Card image cap">
-    
-    <h2>{{ page.title }}</a></h2>
-    <p class="tags">Tags: {{ page.tags.all|join:", "}}</p>
-     <p> {{ page.body }}</p>
+      <div class="card-body">
+        <h2>{{ page.title }}</a></h2>
+        <p class="tags">Tags: {{ page.tags.all|join:", "}}</p>
+        <p class="card-text"> {{ page.body }}</p>
+      </div>
+      <div class="card-footer">
      <a class="btn btn-success ml-2" href ="{% url 'about' page.pk %}" role="button">View</a>  <a class="btn btn-success ml-2" href="{% url 'edit' page.pk %}">Edit </a>    <a class="btn btn-danger" href="" role="button">Delete </a>
-    </div>
- </div>   
+       </div>
+      </div>
+    </div>   
  {% endfor %}
- 
+  </div>
+ </div>
 </ul>
+
+
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; First</a>
+            <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">Next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
 {% endblock content %}
 
