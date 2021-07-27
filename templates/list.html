@@ -7,7 +7,11 @@
 {% for page in all_posts_lists %}
   <div class="post-entry">
     <div class="card">
-     <img class="card-img-top" src="..." alt="Card image cap">
+      <div class="embed-responsive embed-responsive-16by9">
+        {% load static %}
+     <img class="card-img-top embed-responsive-item" src="{% static 'images/test.jpg' %}" alt="Card image cap">
+     </div>
+  </div>
       <div class="card-body">
         <h2>{{ page.title }}</a></h2>
         <p class="tags">Tags: {{ page.tags.all|join:", "}}</p>
@@ -16,7 +20,6 @@
       <div class="card-footer">
      <a class="btn btn-success ml-2" href ="{% url 'about' page.pk %}" role="button">View</a>  <a class="btn btn-success ml-2" href="{% url 'edit' page.pk %}">Edit </a>    <a class="btn btn-danger" href="" role="button">Delete </a>
        </div>
-      </div>
     </div>   
  {% endfor %}
   </div>
