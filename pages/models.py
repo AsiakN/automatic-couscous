@@ -3,6 +3,7 @@ from django.urls import reverse
 from django.contrib.auth.models import AbstractUser 
 from django.contrib.auth import get_user_model 
 from taggit.managers import TaggableManager
+from ckeditor.fields import RichTextField
 
 Research_Areas = (
     ('Agriculture', 'AGRICULTURE'),
@@ -31,7 +32,7 @@ class CustomUser(AbstractUser):
 class CreateScribe(models.Model):
    Interest = models.CharField(max_length=50, choices=Research_Areas, default="")
    title = models.CharField(max_length=250)
-   body = models.TextField()
+   body =  RichTextField(config_name='awesome_ckeditor')
    author = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
    tags = TaggableManager()
    

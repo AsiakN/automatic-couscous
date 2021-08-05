@@ -92,5 +92,6 @@ class SignUpView(CreateView):
 class DeletePageView(DeleteView): 
   model = CreateScribe
   template_name = 'delete.html'
+  success_url = reverse_lazy('list')
   
 # Create your views here.

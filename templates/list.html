@@ -16,10 +16,10 @@
       <div class="card-body">
         <h2>{{ page.title }}</a></h2>
         <p class="tags">Tags: {{ page.tags.all|join:", "}}</p>
-        <p class="card-text"> {{ page.body }}</p>
+        <p class="card-text"> {{ page.body|safe }}</p>
       </div>
       <div class="card-footer">
-     <a class="btn btn-success ml-2" href="{% url 'edit' page.pk %}">Edit </a>    <a class="btn btn-danger" href="" role="button">Delete </a>
+     <a class="btn btn-success ml-2" href="{% url 'edit' page.pk %}">Edit </a>    <a class="btn btn-danger" href="{% url 'delete' page.pk %}" role="button">Delete </a>
        </div>
     </div>   
  {% endfor %}

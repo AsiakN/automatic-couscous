@@ -3,6 +3,7 @@ from django.forms import ModelForm
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 
 from .models import CustomUser, CreateScribe
+from ckeditor.fields import RichTextField
 
 class CustomUserCreationForm(UserCreationForm):
 
@@ -39,6 +40,7 @@ class CustomUserChangeForm(UserChangeForm):
       
 
 class ScribeCreationForm(ModelForm):
+   body = RichTextField()
 
    class Meta: 
       model = CreateScribe
