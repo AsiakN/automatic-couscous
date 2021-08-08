@@ -18,8 +18,7 @@ font-size: 18px;
 .help_text 
 {display: none}
 
-.navbar-brand1{
-  margin-right: 10px;
-  color: blue;
-  text-align: justify;
+.navbar-brand{
+  margin-left:10px;
+
 }

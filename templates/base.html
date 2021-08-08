@@ -1,6 +1,7 @@
 <!-- templates/base.html -->
 <!DOCTYPE html>
 {% load static %}
+
 <html>
 <head>
   <meta charset="utf-8">
@@ -12,15 +13,26 @@
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="styleheet" href="{% static 'css/base.css' %}">
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="{% url 'home' %}">🏡️</a>
-    <a class="navbar-brand" href="#"> Portfolio</a>
-    <a class="navbar-brand" href="#"> Blog</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+    <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  
     </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+       <div class="navbar-nav">
+          <a class="nav-item nav-link active" href="{% url 'home' %}">🏡️<span class="sr-only">(current)</span></a>
+         <a class="nav-item nav-link" href="#"> Portfolio</a>
+         <a class="nav-item nav-link" href="#"> Blog</a>
+       </div>
+    
+    </div>
+    
+    
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       {% if user.is_authenticated %}
         <ul class="navbar-nav ml-auto">
