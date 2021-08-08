@@ -6,9 +6,11 @@ from .models import CustomUser, CreateScribe
 from ckeditor.fields import RichTextField
 
 class CustomUserCreationForm(UserCreationForm):
+   def __init__(self, *args, **kwargs):
+        super(CustomUserCreationForm, self).__init__(*args, **kwargs)
+        self.fields['username'].widget.attrs.pop("autofocus", None)
 
-
-   class Meta(UserCreationForm):
+   class Meta:
    
       model = CustomUser
       
