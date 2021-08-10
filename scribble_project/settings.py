@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     'pages.apps.PagesConfig',
-    #'accounts.apps.AccountsConfig',
+    'accounts.apps.AccountsConfig',
     'scrapper.apps.ScrapperConfig',
     #'users.apps.UsersConfig',
     

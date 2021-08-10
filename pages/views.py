@@ -1,13 +1,20 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
+from django.shortcuts import get_object_or_404
 from django.views.generic import TemplateView
 from django.views.generic import ListView, DetailView
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.edit import (
+	CreateView, UpdateView, DeleteView
+)
 from .models import CustomUser, CreateScribe
 #from django.views.generic import CreateView,
 from django.urls import reverse_lazy, reverse
 from .forms import CustomUserCreationForm, ScribeCreationForm
 from scrapper.models import News
+from django.contrib.auth.mixins import(
+  LoginRequiredMixin,
+  UserPassesTestMixin
+ )
 
 class HomePageView(ListView):
    #model = CreateScribe
@@ -18,24 +25,29 @@ class HomePageView(ListView):
    def get_queryset(self):
         return News.objects.all()
         
-class ListPageView(ListView):
+class ListPageView(LoginRequiredMixin,ListView):
     model = CreateScribe
     template_name = 'list.html'
    # context_object_name = 
     context_object_name = 'all_posts_lists'
     paginate_by = 3; 
-    
+   
+    def get_queryset(self):
+        author = get_object_or_404(CreateScribe, author=self.kwargs.get('username'))
+        return CreateScribe.objects.filter(author=author)
 
-class DetailPageView(DetailView):
+        
+class DetailPageView(LoginRequiredMixin,DetailView):
    model = CreateScribe
    template_name = 'about.html'
    context_object_name = 'all_posts_lists'
    #success_url = reverse_lazy('list')
    
-class PageCreateView(CreateView):
+class PageCreateView(LoginRequiredMixin,CreateView):
    model = CreateScribe
    form_class = ScribeCreationForm
    template_name = 'new.html'
+   login_url = 'login'
    
    def get_success_url(self):
         return reverse('list')
@@ -78,20 +90,24 @@ class PageCreateView(CreateView):
             
    #success_url = reverse_lazy('list')
    
-class PageEditView(UpdateView):
+class PageEditView(LoginRequiredMixin,UserPassesTestMixin, UpdateView):
    model = CreateScribe
    template_name = 'edit.html'
    fields = ['title', 'body']
    success_url = reverse_lazy('list')
+   login_url = 'login'
+   
+   def test_func(self):
+      obj = self.get_object()
+      return obj.author == self.request.user
 
-class SignUpView(CreateView):
-   form_class = CustomUserCreationForm
-   success_url = reverse_lazy('login')
-   template_name = 'signup.html'
-
-class DeletePageView(DeleteView): 
+class DeletePageView(LoginRequiredMixin,UserPassesTestMixin,DeleteView): 
   model = CreateScribe
   template_name = 'delete.html'
   success_url = reverse_lazy('list')
+  login_url  = 'login'
   
+  def test_func(self):
+      obj = self.get_object()
+      return obj.author == self.request.user
 # Create your views here.

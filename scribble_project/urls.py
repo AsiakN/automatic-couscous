@@ -23,6 +23,6 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')), 
     #path('ckeditor/', include('ckeditor.urls')),
     #patterns(r'^search/', include('googlesearch.urls')),
-    #path('scrapper/', include('scrapper.urls')),
+    path('accounts/', include('accounts.urls')),
    # path('users/', include('users.urls')),
 ]
