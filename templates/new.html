@@ -3,13 +3,16 @@
 
 {% load static %}
 {% block content %}
+ 
   <h1>New Scribe</h1>
   <form action ="" method="post">
     {% csrf_token %}  
     <script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
     <script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
     {{ form.as_p }}
+    <div class="container">
     <button class="btn btn-success ml-2" type="submit">Create😉️</button> <a href="{% url 'home' %}" class="btn btn-danger ml-2" type="submit">Cancel🤔️</a>
+    </div>
   </form>
 
 {% endblock content %}

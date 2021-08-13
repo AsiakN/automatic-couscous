@@ -46,5 +46,5 @@ class ScribeCreationForm(ModelForm):
 
    class Meta: 
       model = CreateScribe
-      fields =  ['title', 'body', 'Interest', 'tags']
+      fields =  ['title', 'body', 'tags']
       

@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'taggit',
     'ckeditor',
+    'fontawesome-free'
     #'googlesearch',
 ]
 

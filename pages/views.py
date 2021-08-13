@@ -32,10 +32,6 @@ class ListPageView(LoginRequiredMixin,ListView):
     context_object_name = 'all_posts_lists'
     paginate_by = 3; 
    
-    def get_queryset(self):
-        author = get_object_or_404(CreateScribe, author=self.kwargs.get('username'))
-        return CreateScribe.objects.filter(author=author)
-
         
 class DetailPageView(LoginRequiredMixin,DetailView):
    model = CreateScribe

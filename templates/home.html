@@ -5,20 +5,20 @@
 {% block content %}
   {% if user.is_authenticated %}
 
-    <div class="jumbotron">
+    <div class="container-fluid">
     <h1 class="display-4">Scribble </h1>
-    <p class="lead">All your research in at a go!</p>
+    <p class="lead">All your research at a go!</p>
     <p class="lead">
       <a class="btn btn-primary btn-lg" href="{% url 'list' %}"
        role="button"> View your research</a></p>
       
   </div>
   {% else %}
-   <div class="jumbotron">
+   <div class="container-fluid">
     <h1 class="display-4">Scribble </h1>
     <p class="lead">All your research at a go!</p>
     <p class="lead">
-      <a class="btn btn-primary btn-lg" href="{% url 'login' %}"
+      <a class="btn btn-outline-dark mb-4" href="{% url 'login' %}"
        role="button">LOGIN</a></p>
    {% endif %}
    
@@ -37,12 +37,13 @@
     </table>
    {% endfor %}
  {% if user.is_authenticated %} 
-   
+   <div class="">
    <a class="btn btn-block btn-social btn-twitter" href="{% url 'new' %}">
     <span class="">
       <button class="btn btn-info" type="submit">+ New Scribe</button>
     </span>
   </a> 
+ </div>
   {% else %}
   
  {% endif %}
