@@ -20,12 +20,12 @@ class HomePageView(ListView):
    #model = CreateScribe
    model = News
    template_name = 'home.html'
-   context_object_name = 'articles'
+   context_object_name = 'all_posts_lists'
    
    def get_queryset(self):
         return News.objects.all()
         
-class ListPageView(LoginRequiredMixin,ListView):
+class ListPageView(ListView):
     model = CreateScribe
     template_name = 'list.html'
    # context_object_name = 
