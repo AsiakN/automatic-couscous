@@ -16,14 +16,6 @@ from django.contrib.auth.mixins import(
   UserPassesTestMixin
  )
 
-class HomePageView(ListView):
-   #model = CreateScribe
-   model = News
-   template_name = 'home.html'
-   context_object_name = 'all_posts_lists'
-   
-   def get_queryset(self):
-        return News.objects.all()
         
 class ListPageView(ListView):
     model = CreateScribe
@@ -33,7 +25,7 @@ class ListPageView(ListView):
     paginate_by = 3; 
    
         
-class DetailPageView(LoginRequiredMixin,DetailView):
+class DetailPageView(DetailView):
    model = CreateScribe
    template_name = 'about.html'
    context_object_name = 'all_posts_lists'

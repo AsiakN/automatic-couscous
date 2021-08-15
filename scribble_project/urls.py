@@ -19,10 +19,11 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('pages.urls')),
+    path('pages/', include('pages.urls')),
     path('accounts/', include('django.contrib.auth.urls')), 
     #path('ckeditor/', include('ckeditor.urls')),
     #patterns(r'^search/', include('googlesearch.urls')),
     path('accounts/', include('accounts.urls')),
+    path('', include('homeapp.urls')),
    # path('users/', include('users.urls')),
 ]
