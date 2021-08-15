@@ -16,7 +16,7 @@
       <div class="card-body">
         <h2>{{ page.title }}</a></h2>
         <p class="tags">Tags: {{ page.tags.all|join:", "}}</p>
-        <p class="card-text"> {{ page.body|safe }}</p>
+        
       </div>
       <div class="card-footer">
      <a class="btn btn-success ml-2" href="{% url 'about' page.pk %}">View📃️ </a> 

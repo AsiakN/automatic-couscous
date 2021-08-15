@@ -4,8 +4,8 @@
 {% block content %}
 
 <div class="post-entry">
-<h2>{{ page.title }}</h2>
-<p>{{ page.body }}</p>
+<h2>{{ object.title }}</h2>
+<p> {{ object.body|safe }}</p>
 </div>
 
 {% endblock content %}
