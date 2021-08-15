@@ -8,6 +8,12 @@ font-size: 18px;
   flex-wrap: wrap;
 }
 
+.cover-container{
+  display:flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
 .form-group {
   margin-bottom: 20px;
 }
@@ -51,16 +57,17 @@ font-size: 18px;
   color: #727272;
   text-align: center;
   background-color: #000;
-  border-top: .05rem solid #e5e5e5;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  border-top: .1rem solid #e5e5e5;
+  flex-shrink:0;
   padding:1rem 0;
-  height: 11rem;
+  
 }
 
 .blog-footer p:last-child {
   margin-bottom: 0;
+}
+
+main{
+flex-grow:1;
 }
 

@@ -16,10 +16,9 @@
       <div class="card-body">
         <h2>{{ page.title }}</a></h2>
         <p class="tags">Tags: {{ page.tags.all|join:", "}}</p>
-        
       </div>
       <div class="card-footer">
-     <a class="btn btn-success ml-2" href="{% url 'about' page.pk %}">View📃️ </a> 
+     <a class="btn btn-dark ml-2" href="{% url 'about' page.pk %}">View📃️ </a> <a class="btn btn-outline-primary" href="{% url 'new' %}">Create📃️ </a> 
        </div>
     </div>   
  {% endfor %}
