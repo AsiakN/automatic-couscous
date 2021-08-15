@@ -19,7 +19,7 @@
         <p class="card-text"> {{ page.body|safe }}</p>
       </div>
       <div class="card-footer">
-     <a class="btn btn-success ml-2" href="{% url 'edit' page.pk %}">Edit📃️ </a>    <a class="btn btn-danger" href="{% url 'delete' page.pk %}" role="button">Delete😬️ </a>
+     <a class="btn btn-success ml-2" href="{% url 'about' page.pk %}">View📃️ </a> 
        </div>
     </div>   
  {% endfor %}
