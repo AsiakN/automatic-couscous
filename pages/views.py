@@ -10,7 +10,7 @@ from .models import CustomUser, CreateScribe
 #from django.views.generic import CreateView,
 from django.urls import reverse_lazy, reverse
 from .forms import CustomUserCreationForm, ScribeCreationForm
-from scrapper.models import News
+#from scrapper.models import News
 from django.contrib.auth.mixins import(
   LoginRequiredMixin,
   UserPassesTestMixin

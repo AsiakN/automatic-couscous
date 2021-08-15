@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'pages.apps.PagesConfig',
     'accounts.apps.AccountsConfig',
-    'scrapper.apps.ScrapperConfig',
+    #'scrapper.apps.ScrapperConfig',
     #'users.apps.UsersConfig',
     
     # 3rd party apps
