@@ -2,7 +2,6 @@ from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import AbstractUser 
 from django.contrib.auth import get_user_model 
-from taggit.managers import TaggableManager
 from ckeditor.fields import RichTextField
 
 Research_Areas = (
@@ -34,7 +33,6 @@ class CreateScribe(models.Model):
    title = models.CharField(max_length=250)
    body =  RichTextField(config_name='awesome_ckeditor')
    author = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-   tags = TaggableManager()
    
       
    def __str__(self):

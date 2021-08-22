@@ -10,7 +10,6 @@
      <div class="card rounded" style="width: 18rem;" >
       <div class="card-body">
         <h2 class="card-title">{{ page.title }}</a></h2>
-        <p class="tags mb-2 text-muted">Tags: {{ page.tags.all|join:", "}}</p>
         <a class="btn btn-outline-dark" href="{% url 'about' page.pk %}">View📃️ </a>
       </div>
       <div class="card-footer">

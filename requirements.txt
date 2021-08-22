@@ -15,7 +15,6 @@ django-ckeditor==6.1.0
 django-crispy-forms==1.8.1
 django-googlesearch==0.2
 django-js-asset==1.2.2
-django-taggit==1.5.1
 fontawesome-free==5.15.4
 gunicorn==19.9.0
 idna==3.2
