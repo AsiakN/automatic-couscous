@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     
     # 3rd party apps
     'crispy_forms',
-    'django-taggit',
+    'taggit',
     'ckeditor',
     'fontawesome-free'
     #'googlesearch',
