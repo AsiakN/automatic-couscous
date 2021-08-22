@@ -9,8 +9,8 @@ urlpatterns = [
   #path('', HomePageView.as_view(), name='home'),
   path('<int:pk>/', DetailPageView.as_view(), name='about'),
   path('new/', PageCreateView.as_view(), name='new'),
-  path('<int:pk>/edit/', PageEditView.as_view(), name='edit'),
+  path('list/<int:pk>/edit/', PageEditView.as_view(), name='edit'),
   path('', ListPageView.as_view(), name='list'),
   path('favicon.ico',  RedirectView.as_view(url=staticfiles_storage.url('images/favicon.ico'))),
-  path('<int:pk>/delete/', DeletePageView.as_view(), name='delete')
+  path('list/<int:pk>/delete/', DeletePageView.as_view(), name='delete')
 ]

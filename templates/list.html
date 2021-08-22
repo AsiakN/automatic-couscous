@@ -1,28 +1,25 @@
 <!-- templates/home.html -->
 {% extends 'base.html' %}
 {% block content %}
+{% load static %}
  <ul>
+ <link rel="stylesheet" href="{% static 'css/base.css' %}">
  <div class="container">
- <div class="card-deck mt-4">
+ <div class="card-deck">
 {% for page in all_posts_lists %}
-  <div class="post-entry">
-   <span class="border border-success"></span>
-    <div class="card rounded" style="width: 18rem;" >
-      <div class="embed-responsive embed-responsive-16by9">
-        {% load static %}
-     <img class="card-img-top embed-responsive-item" src="{% static 'images/test.jpg' %}" alt="Card image cap">
-     </div>
-  </div>
+     <div class="card rounded" style="width: 18rem;" >
       <div class="card-body">
-        <h2>{{ page.title }}</a></h2>
-        <p class="tags">Tags: {{ page.tags.all|join:", "}}</p>
+        <h2 class="card-title">{{ page.title }}</a></h2>
+        <p class="tags mb-2 text-muted">Tags: {{ page.tags.all|join:", "}}</p>
+        <a class="btn btn-outline-dark" href="{% url 'about' page.pk %}">View📃️ </a>
       </div>
       <div class="card-footer">
-     <a class="btn btn-dark ml-2" href="{% url 'about' page.pk %}">View📃️ </a> <a class="btn btn-outline-primary" href="{% url 'new' %}">Create📃️ </a> 
-       </div>
-    </div>   
+      <small class="text-muted">Last updated 3 mins ago</small>
+    </div>
+    </div>  
+   
  {% endfor %}
-  </div>
+ </div>
  </div>
 </ul>
 

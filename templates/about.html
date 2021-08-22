@@ -8,9 +8,9 @@
 <p> {{ object.body|safe }}</p>
 </div>
 
-<a href="">Go back to Blog</a>
-<a href="">Edit </a>
-<a href="">Delete</a>
+<a class="btn btn-outline-info ml-2" href="{% url 'list' %}">Go back to Blog</a>
+<a class="btn btn-outline-success ml-2" href="{% url 'edit' object.pk %}">Edit </a>
+<a class="btn btn-outline-danger" href="{% url 'delete' object.pk %}">Delete</a>
 {% endblock content %}
 
 
